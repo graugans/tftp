@@ -5,14 +5,11 @@ Dockerized tftp-hpa server running in Alpine Linux.
 ## Example
 
 ```
-version: '2'
-
-services:
-  server:
-    image: taskinen/tftp
-    ports:
-      - "69:69/udp"
-    volumes:
-      - /var/docker-volumes/tftp/tftpboot:/var/tftpboot:ro
-    restart: unless-stopped
+$ sudo mkdir -p /var/docker-volumes/tftpboot
+$ sudo chown -R $(id -u):$(id -g) -R /var/docker-volumes/tftpboot
+$ docker-compose up --build
 ```
+
+### Usage
+
+Copy the files to be served via tftp to the folder: `/var/docker-volumes/tftpboot`

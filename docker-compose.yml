@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  server:
+    build: .
+    ports:
+      - "69:69/udp"
+    volumes:
+      - /var/docker-volumes/tftpboot:/var/tftpboot:ro
+    restart: unless-stopped
